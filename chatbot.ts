@@ -11,7 +11,7 @@ export class Chatbot {
         this.memory = new MemoryManager();
         this.model = new ChatOpenAI({
             modelName: "gpt-4o-mini",
-            temperature: 0.7
+            temperature: 0.5
         });
         this.activeThreads = new Map();
     }

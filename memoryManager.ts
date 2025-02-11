@@ -321,12 +321,11 @@ Respond ONLY with the JSON object.
             const index = this.pinecone.index(this.indexName);
             const queryEmbedding = await this.generateEmbedding(query);
             
-            // Add filter to only search through salient memories
-            const queryResponse = await (index.query as any)({
+            const queryResponse = await index.query({
                 vector: queryEmbedding,
                 topK: limit,
                 includeMetadata: true,
-                filter: { salient: true }  // Only search through salient memories
+                filter: { salient: true },
             });
 
             console.log("Found memories:", queryResponse.matches?.length || 0);

@@ -12,7 +12,7 @@ async function main() {
         output: process.stdout
     });
 
-    console.log("Chat started. Type 'exit' to end the conversation.");
+    console.log("Chat started. Type 'exit' to end the conversation, or 'clear' to reset chat history.");
 
     const askQuestion = () => {
         rl.question('You: ', async (input) => {
@@ -21,11 +21,15 @@ async function main() {
                 return;
             }
 
+            if (input.toLowerCase() === 'clear') {
+                assistant.clearChatHistory();
+                console.log('Chat history cleared.');
+                askQuestion();
+                return;
+            }
+
             try {
-                process.stdout.write('Assistant: ');
-                const response = await assistant.chat(input);
-                process.stdout.write(response);
-                console.log('\n'); // New line after response
+                await assistant.chat(input);
             } catch (error) {
                 console.error('Error:', error);
             }
