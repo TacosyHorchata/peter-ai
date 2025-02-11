@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "module": "ESNext",
+      "esModuleInterop": true,
+      "target": "ES2020",
+      "moduleResolution": "node",
+      "outDir": "dist",
+      "baseUrl": ".",
+      "sourceMap": true,
+      "strict": true,
+      "allowImportingTsExtensions": true,
+      "noEmit": true
+    },
+    "include": ["*.ts"],
+    "exclude": ["node_modules"]
+  }
