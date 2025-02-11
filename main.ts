@@ -1,4 +1,4 @@
-import { PersonalAssistant } from './personalAssitant.ts';
+import { PersonalAssistant } from './personalAssistant.ts';
 import * as readline from 'readline';
 import dotenv from 'dotenv';
 
